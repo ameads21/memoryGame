@@ -1,0 +1,146 @@
+body {
+  background-color: aqua;
+}
+#game div {
+  border: 1px solid blue;
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  display: inline-block;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  border-radius: 6px;
+  transition: 0.3s ease all;
+  transform-style: preserve-3d;
+  animation: comingIn 2s;
+  perspective: 1000px;
+  z-index: 10;
+}
+
+#game {
+  place-items: center;
+  text-align: center;
+}
+
+#game div:hover {
+  opacity: 0.7;
+}
+
+.notActive {
+  background-image: url("logo.png");
+}
+
+#title {
+  text-align: center;
+  overflow-y: hidden;
+  max-height: 500px;
+
+  transition-property: all;
+  transition-duration: 3s;
+  transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+#title h1 {
+  font-family: Aldrich, Arial, Helvetica, sans-serif;
+  font-size: 50px;
+  color: red;
+}
+
+.turned {
+  transform: scaleX(-1);
+  transform: rotateY(180deg);
+}
+
+.matched {
+  opacity: 0.4;
+}
+
+#startButton {
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5vh 5vw;
+  font-size: 20px;
+  color: white;
+  background: green;
+}
+
+.finalScore {
+  margin: 0 auto;
+  top: 50%;
+  background-color: gray;
+  padding: 15px;
+  text-align: center;
+  place-items: center;
+}
+
+#final {
+  text-align: center;
+}
+
+#restart {
+  margin-top: 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5vh 5vw;
+  font-size: 20px;
+  color: white;
+  background: green;
+  display: none;
+}
+
+.endGame {
+  text-align: center;
+  overflow-y: hidden;
+  max-height: 500px;
+
+  transition-property: all;
+  transition-duration: 3s;
+  transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+  text-align: center;
+}
+
+@keyframes comingIn {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    transform: matrix(0.866, 0.5, -0.5, 0.866, 0, 0);
+  }
+  85% {
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes goAway {
+  from {
+    opacity: 1;
+  }
+  to {
+    top: -300;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 992px) {
+  #startButton {
+    padding: 3vh 6vw;
+  }
+}
+
+@media (min-width: 992px) {
+  #startButton {
+    padding: 3vh 7vw;
+  }
+}
