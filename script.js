@@ -1,6 +1,15 @@
 const gameContainer = document.getElementById("game");
 let startButton = document.querySelector("#startButton");
 startButton.addEventListener("click", startGame);
+let highScore = JSON.parse(localStorage.getItem(`score`)) || 10;
+let score = 0;
+
+//Creating the HighScore section
+let div = document.getElementById("title");
+let highScoreText = document.createElement("h2");
+highScoreText.innerText = "High Score: " + highScore;
+div.append(highScoreText);
+
 function startGame() {
   let title = document.querySelector("#title");
 
@@ -10,7 +19,6 @@ function startGame() {
   let clickedCard2 = null;
   let no_click = false;
   let match = 0;
-  let score = 0;
 
   const IMAGES = [
     "player",
@@ -137,6 +145,9 @@ function startGame() {
       let done = document.getElementById("game");
       done.className += " endGame";
       done.style.maxHeight = "0";
+      if (score < highScore) {
+        localStorage.setItem("score", JSON.stringify(score));
+      }
     }
   }
 
