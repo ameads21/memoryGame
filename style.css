@@ -72,14 +72,11 @@ body {
   padding: 15px;
   text-align: center;
   place-items: center;
-}
-
-#final {
-  text-align: center;
+  transition: all 2s;
 }
 
 #restart {
-  margin-top: 20px;
+  margin: 20px auto;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -90,11 +87,13 @@ body {
   display: none;
 }
 
+#restart:hover {
+  border: 2px solid black;
+}
+
 .endGame {
   text-align: center;
   overflow-y: hidden;
-  max-height: 500px;
-
   transition-property: all;
   transition-duration: 3s;
   transition-timing-function: cubic-bezier(0, 1, 0.5, 1);

@@ -1,8 +1,8 @@
 const gameContainer = document.getElementById("game");
 let startButton = document.querySelector("#startButton");
-startButton.addEventListener("click", startGame);
 let highScore = JSON.parse(localStorage.getItem(`score`)) || 10;
 let score = 0;
+let gameStart = 0;
 
 //Creating the HighScore section
 let div = document.getElementById("title");
@@ -10,7 +10,12 @@ let highScoreText = document.createElement("h2");
 highScoreText.innerText = "High Score: " + highScore;
 div.append(highScoreText);
 
+//Starting the game
+startButton.addEventListener("click", startGame);
+
 function startGame() {
+  startButton.disabled = true;
+  startButton.style.opacity = 0.2;
   let title = document.querySelector("#title");
 
   title.style.maxHeight = "0";
